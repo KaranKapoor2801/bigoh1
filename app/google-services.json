@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "266517692566",
+    "firebase_url": "https://bigoh1-a485b.firebaseio.com",
+    "project_id": "bigoh1-a485b",
+    "storage_bucket": "bigoh1-a485b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266517692566:android:cd8115a943cba52ddf02b7",
+        "android_client_info": {
+          "package_name": "com.example.hack123"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "266517692566-pmfuih0bhhgmoa7evtpdf563k5b4c89e.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hack123",
+            "certificate_hash": "b0a82676b76f6e660b9f0da6bcf0f03229551339"
+          }
+        },
+        {
+          "client_id": "266517692566-5jiu4no1gbdilsdr24c9crmbsvrb7dt7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXFCLFn4sZYq45xVGtjquO_qDmBOJISDI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "266517692566-5jiu4no1gbdilsdr24c9crmbsvrb7dt7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

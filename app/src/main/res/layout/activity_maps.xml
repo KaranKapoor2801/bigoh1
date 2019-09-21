@@ -24,4 +24,11 @@
 
     </android.support.v7.widget.SearchView>
 
+    <Button
+        android:id="@+id/current_location_button"
+        android:layout_below="@+id/search_searchview"
+        android:text="Go To Current Location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 </RelativeLayout>
