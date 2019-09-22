@@ -1,9 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.widget.RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".PccActivity">
 
-</android.support.constraint.ConstraintLayout>
+
+    <Button
+        android:id="@+id/documentbutton"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="200dp"
+        android:text="Upload Intern company details"
+        android:background="@color/colorPrimary" />
+    <Button
+        android:id="@+id/companyinterestedstudent"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="100dp"
+        android:text="Submit  interested student"
+        android:background="@color/colorPrimary" />
+
+    <Button
+        android:id="@+id/placement_details"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/documentbutton"
+        android:text="Upload Placement company details"
+        android:background="@color/colorPrimary" />
+</android.widget.RelativeLayout>

@@ -2,6 +2,7 @@ package com.example.hack123;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Address;
@@ -9,6 +10,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -35,6 +37,7 @@ import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -54,13 +57,28 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     Location locationCurrent;
 
     private FusedLocationProviderClient client;
-
+    HashMap<String,LatLng> latLngHashMap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        Uri gmmIntentUri = Uri.parse("geo:37.7749,-122.4194");
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+        mapIntent.setPackage("com.google.android.apps.maps");
+        if (mapIntent.resolveActivity(getPackageManager()) != null) {
+            startActivity(mapIntent);
+        }
 
-        searchView=(SearchView)findViewById(R.id.search_searchview);
+
+        latLngHashMap=new HashMap<>(1);
+        latLngHashMap.put("Hublie Hall",new LatLng(29.9465012,76.8131874));
+        latLngHashMap.put("LHC",new LatLng(29.9449505,76.8146038));
+        latLngHashMap.put("SAE",new LatLng(29.9447785,76.8155989));
+        latLngHashMap.put("SAC",new LatLng(29.9452353,76.815877));
+        latLngHashMap.put("Senate",new LatLng(29.9483053,76.8146328));
+        latLngHashMap.put("Academic",new LatLng(29.9462932,76.8144913));
+
+        /*searchView=(SearchView)findViewById(R.id.search_searchview);
         mapFragment=(SupportMapFragment)getSupportFragmentManager().findFragmentById(R.id.google_map_fragment);
         locationHashMap=new HashMap<>();
         currentLocationButton=(Button)findViewById(R.id.current_location_button);
@@ -203,6 +221,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
                 }
             }
-        }
+        }*/
+
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+
     }
 }

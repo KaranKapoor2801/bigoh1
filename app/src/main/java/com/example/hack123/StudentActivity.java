@@ -1,5 +1,6 @@
 package com.example.hack123;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,7 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class StudentActivity extends AppCompatActivity {
 
-    Button uploadDocuments,checkEvents,checkPlacements,checkIntern,checkMessBill;
+    Button uploadDocuments,checkEvents,checkPlacements,checkIntern,checkMessBill,goToMap;
     FirebaseUser currentUser;
     String currentUid;
     DatabaseReference studentDatabaseRef;
@@ -31,11 +32,12 @@ public class StudentActivity extends AppCompatActivity {
         checkEvents=(Button)findViewById(R.id.events);
         checkMessBill=(Button)findViewById(R.id.mess);
         checkPlacements=(Button)findViewById(R.id.placements);
+        goToMap=(Button)findViewById(R.id.go_to_map);
 
         currentUser= FirebaseAuth.getInstance().getCurrentUser();
         currentUid=currentUser.getUid();
 
-        studentDatabaseRef= FirebaseDatabase.getInstance().getReference().child("users").child("student").child("uid");
+        studentDatabaseRef= FirebaseDatabase.getInstance().getReference().child("users").child("student").child(currentUid);
         studentDatabaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -47,11 +49,13 @@ public class StudentActivity extends AppCompatActivity {
                     checkMessBill.setVisibility(View.INVISIBLE);
                     checkIntern.setVisibility(View.INVISIBLE);
                     checkPlacements.setVisibility(View.INVISIBLE);
+                    goToMap.setVisibility(View.INVISIBLE);
 
                     checkEvents.setEnabled(false);
                     checkMessBill.setEnabled(false);
                     checkIntern.setEnabled(false);
                     checkPlacements.setEnabled(false);
+                    goToMap.setEnabled(false);
                 }
             }
 
@@ -85,7 +89,24 @@ public class StudentActivity extends AppCompatActivity {
         checkIntern.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent=new Intent(StudentActivity.this,InternActivity.class);
+                startActivity(intent);
+            }
+        });
 
+        uploadDocuments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(StudentActivity.this,UploadFile.class);
+                startActivity(intent);
+            }
+        });
+
+        goToMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(StudentActivity.this,MapsActivity.class);
+                startActivity(intent);
             }
         });
     }

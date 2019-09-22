@@ -10,12 +10,16 @@
         android:id="@+id/document_display_imageview"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:src="@drawable/loading"/>
+
     <Button
-        android:layout_below="@+id/document_display_imageview"
         android:id="@+id/verify_doc_btn"
-        android:layout_width="match_parent"
+        android:layout_width="200dp"
+        android:layout_marginLeft="100dp"
         android:layout_height="wrap_content"
-        android:text="Verify Documents"/>
+        android:layout_below="@+id/document_display_imageview"
+        android:background="@color/colorPrimary"
+        android:text="Verify Documents" />
 
 </RelativeLayout>
